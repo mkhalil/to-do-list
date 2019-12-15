@@ -9,7 +9,7 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class TodoService {
 
-  private toDoUrl = 'api/todos';
+  private toDoUrl = 'http://localhost:8080/api/todos';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -38,7 +38,7 @@ export class TodoService {
 
   update(todo: Todo): Observable<any> {
     console.log(todo);
-    return this.httpClient.put<any>(this.toDoUrl, todo, this.httpOptions).pipe(
+    return this.httpClient.put<any>(`${this.toDoUrl}/${todo.id}`, todo, this.httpOptions).pipe(
       catchError(this.handleError<any>('updateTodo'))
     );
   }
