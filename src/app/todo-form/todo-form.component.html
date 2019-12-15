@@ -1,0 +1,7 @@
+<form [formGroup]="todoFormGroup" (ngSubmit)="onSubmit()">
+  <h4 class="card-title">Todo list</h4>
+  <div class="d-flex">
+    <input type="text" class="form-control todo-list-input" formControlName="task" placeholder="What do you need to do today?">
+    <input type="submit" value="Add" class="ml-1 btn btn-primary" [disabled]="todoFormGroup.invalid"/>
+  </div>
+</form>

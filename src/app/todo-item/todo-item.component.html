@@ -1,0 +1,7 @@
+<li class="list-group-item" [class.list-group-item-success]="todo.done">
+  <div class="d-flex justify-content-between align-items-center">
+    <input type="checkbox" title="Todo done" (change)="done(todo, $event.target.checked)" [checked]="todo.done"/>
+    <div> {{todo.task}}</div>
+    <button class="btn btn-danger" title="delete Todo" (click)="delete(todo)">x</button>
+  </div>
+</li>
